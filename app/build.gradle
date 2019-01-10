@@ -1,6 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
+
+    dataBinding {
+        enabled = true
+
+    }
+
     compileSdkVersion 27
     defaultConfig {
         applicationId "app.exercise.androidexerciseapplication"
@@ -16,13 +22,39 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    flavorDimensions "version"
+    productFlavors {
+
+        dev {
+            versionName "1.0"
+            buildConfigField 'String', 'BASE_URL', '"https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/"'
+            buildConfigField 'String', 'API_FACTS', '"facts.json"'
+            buildConfigField 'Integer', 'CONNECTION_TIME_OUT', '1'
+            buildConfigField 'Integer', 'READ_TIME_OUT', '30'
+            buildConfigField 'Integer', 'WRITE_TIME_OUT', '30'
+
+        }
+
+    }
+    
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    //Retrofit to call api
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    // For Listing
+    implementation 'com.android.support:cardview-v7:27.1.1'
+    implementation 'com.android.support:recyclerview-v7:27.1.1'
+    // ViewModel and LiveData
+    implementation 'android.arch.lifecycle:extensions:1.1.1'
+
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
 }
