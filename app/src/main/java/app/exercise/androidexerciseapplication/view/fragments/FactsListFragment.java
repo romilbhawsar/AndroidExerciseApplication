@@ -11,6 +11,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,7 +40,7 @@ public class FactsListFragment extends Fragment implements SwipeRefreshLayout.On
 
     private FactsListViewModel viewModel;
 
-    public FactsListFragment(){
+    public FactsListFragment() {
         // Required empty public constructor
     }
 
@@ -105,7 +106,7 @@ public class FactsListFragment extends Fragment implements SwipeRefreshLayout.On
 
                 setRefreshingOff();
 
-                if (message != null && !message.isEmpty())
+                if (!TextUtils.isEmpty(message))
                     CommonMethods.showAlertDialog(context, getString(R.string.alert), message);
 
             }
@@ -127,7 +128,7 @@ public class FactsListFragment extends Fragment implements SwipeRefreshLayout.On
                     }
 
                     // Set actionbar title
-                    if (factsBean.getTitle() != null && !factsBean.getTitle().isEmpty()) {
+                    if (!TextUtils.isEmpty(factsBean.getTitle())) {
                         if (((MainActivity) getActivity()) != null)
                             ((MainActivity) getActivity()).setActionBarTitle(factsBean.getTitle());
                     }

@@ -82,5 +82,4 @@ public class FactsListAdapter extends RecyclerView.Adapter<FactsListAdapter.Fact
     }
 
 
-
 }
