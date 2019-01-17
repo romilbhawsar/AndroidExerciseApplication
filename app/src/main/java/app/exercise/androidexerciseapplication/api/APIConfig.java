@@ -1,7 +1,9 @@
 package app.exercise.androidexerciseapplication.api;
 
 import android.util.Log;
+
 import java.util.concurrent.TimeUnit;
+
 import app.exercise.androidexerciseapplication.BuildConfig;
 import app.exercise.androidexerciseapplication.beans.FactsBean;
 import okhttp3.OkHttpClient;
