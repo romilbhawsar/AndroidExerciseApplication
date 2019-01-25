@@ -43,6 +43,14 @@ public class FactsListViewModel extends AndroidViewModel {
         return factsBeanLiveData;
     }
 
+    public void setMessage(MutableLiveData<String> message) {
+        this.message = message;
+    }
+
+    public void setFactsBeanLiveData(MutableLiveData<FactsBean> factsBeanLiveData) {
+        this.factsBeanLiveData = factsBeanLiveData;
+    }
+
     /**
      * Call API to get data
      */
